@@ -19,7 +19,7 @@ app.get('/london', function(req, res){
             console.log("Connect To Jakarta");
             app.get('/london/:convertto/:time', function(req, res){
                 var London = moment.tz(req.params.time, "Europe/London");
-                var Jakarta = London.clone().tz("Asia/Jakarta").format("hh:mm");
+                var Jakarta = London.subtract(1, 'hours').clone().tz("Asia/Jakarta").format("hh:mm");
                 
                 let data = {
                     Jakarta,
@@ -33,7 +33,7 @@ app.get('/london', function(req, res){
             console.log("Connect To Tokyo");
             app.get('/london/:convertto/:time', function(req, res){
                 var London = moment.tz(req.params.time, "Europe/London");
-                var Tokyo = London.clone().tz("Asia/Tokyo").format("hh:mm");
+                var Tokyo = London.subtract(1, 'hours').clone().tz("Asia/Tokyo").format("hh:mm");
                 
                 let data = {
                     Tokyo,
@@ -47,8 +47,8 @@ app.get('/london', function(req, res){
             console.log("Connect To Jakarta & Tokyo");
             app.get('/london/:convertto/:time', function(req, res){
                 var London = moment.tz(req.params.time, "Europe/London");
-                var Jakarta = London.clone().tz("Asia/Jakarta").format("hh:mm");
-                var Tokyo = London.clone().tz("Asia/Tokyo").format("hh:mm");
+                var Jakarta = London.subtract(1, 'hours').clone().tz("Asia/Jakarta").format("hh:mm");
+                var Tokyo = London.subtract(1, 'hours').clone().tz("Asia/Tokyo").format("hh:mm");
                 
                 let data = {
                     Jakarta,
